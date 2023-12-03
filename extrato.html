@@ -1,0 +1,141 @@
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #333333;
+      padding: 10px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      color: #cccccc;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .welcome {
+      text-align: center;
+    }
+
+    .welcome h2 {
+      color: #333333;
+    }
+
+    .welcome p {
+      color: #666666;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .form label {
+      color: #333333;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .form input {
+      width: 300px;
+      height: 30px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      padding-left: 10px;
+    }
+
+    .form button {
+      width: 200px;
+      height: 40px;
+      background-color: #333333;
+      color: white;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1 style="color:white;">Banco Cooperativa</h1>
+    <ul>
+      <li><a href="home.html">Página Inicial</a></li>
+      <li><a href="saque.html">Saque</a></li>
+      <li><a href="deposito.html">Depósito</a></li>
+      <li><a href="extrato.html">Extrato</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <div class="welcome">
+      <h2>Bem-vindo ao sistema de extrato</h2>
+      <p>Aqui você pode consultar o seu extrato bancário de forma rápida e fácil.</p>
+    </div>
+    <div class="form">
+      <label for="name">Nome do cliente:</label>
+      <input type="text" id="name" name="name" value="João da Silva" readonly>
+      
+       <label for="transactions">Transações:</label>
+       <table id="transactions" border="1">
+         <tr>
+           <th>Data</th>
+           <th>Descrição</th>
+           <th>Valor</th>
+         </tr>
+         <tr>
+           <td>01/08/2023</td>
+           <td>Salário</td>
+           <td>+R$3000,00</td>
+         </tr>
+         <tr>
+           <td>05/08/2023</td>
+           <td>Pagamento da conta de luz</td>
+           <td>-R$150,00</td>
+         </tr>
+         <tr>
+           <td>10/08/2023</td>
+           <td>Compra no supermercado</td>
+           <td>-R$200,00</td>
+         </tr>
+         <tr>
+           <td>15/08/2023</td>
+           <td>Transferência para Maria</td>
+           <td>-R$500,00</td>
+         </tr>
+
+       </table>
+
+       <!-- Você pode adicionar mais transações aqui -->
+
+       <!-- Você pode adicionar um botão para gerar um PDF do extrato -->

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title style="color:white;"><a href="index.html">Banco Cooperativa</a></title>
+    <style>
+        /* ... (o estilo anterior permanece inalterado) ... */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            background-color: #cccccc;
+            height: 100vh;
+        }
+
+        .welcome {
+            text-align: center;
+
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form label {
+            margin-bottom: 8px;
+            color: #333333;
+        }
+
+        .login-form input {
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        .login-form button {
+            padding: 12px;
+            background-color: #333333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-form p {
+            text-align: center;
+        }
+
+        .login-form button:hover {
+            background-color: #555555;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <!-- ... (o código da barra de navegação permanece inalterado) ... -->
+    </nav>
+    <div class="container">
+        <div class="welcome">
+            <h2>Seja bem-vindo ao Banco Cooperativa!</h2>
+            <p>Aqui você encontra as melhores soluções financeiras para o seu bolso e para o seu futuro.</p>
+        </div>
+        <div class="login-container">
+            <h2>Cadastre-se</h2>
+            <form class="login-form" id="signupForm">
+                <label for="username">Usuário:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Cadastrar</button>
+                <p>Já tem uma conta? <a href="/index.html">Clique aqui para fazer o login.</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Obtém os valores dos campos
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Faz a chamada à API usando fetch
+            fetch('http://localhost:3333/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    password: password,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Cadastro com sucesso. Vá para a página de Login!")
+                // Adicione aqui qualquer lógica adicional após o cadastro bem-sucedido
+            })
+            .catch(error => {
+                console.error('Erro ao cadastrar:', error);
+                // Adicione aqui qualquer lógica adicional para tratamento de erro
+            });
+        });
+    </script>
+</body>
+
+</html>
